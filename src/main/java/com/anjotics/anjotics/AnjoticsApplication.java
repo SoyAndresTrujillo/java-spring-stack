@@ -8,6 +8,5 @@ public class AnjoticsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AnjoticsApplication.class, args);
-		System.out.println("Hello, world!");
 	}
 }
