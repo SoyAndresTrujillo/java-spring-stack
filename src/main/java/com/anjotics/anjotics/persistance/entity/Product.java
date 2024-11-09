@@ -9,12 +9,12 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_product")
-    private Long idProduct;
+    private Integer idProduct;
 
     private String name;
 
     @Column(name = "id_category")
-    private Long idCategory;
+    private Integer idCategory;
 
     private String barcode;
 
@@ -26,11 +26,11 @@ public class Product {
 
     private Boolean status;
 
-    public Long getIdProduct() {
+    public Integer getIdProduct() {
         return idProduct;
     }
 
-    public void setIdProduct(Long idProduct) {
+    public void setIdProduct(Integer idProduct) {
         this.idProduct = idProduct;
     }
 
@@ -42,11 +42,11 @@ public class Product {
         this.name = name;
     }
 
-    public Long getIdCategory() {
+    public Integer getIdCategory() {
         return idCategory;
     }
 
-    public void setIdCategory(Long idCategory) {
+    public void setIdCategory(Integer idCategory) {
         this.idCategory = idCategory;
     }
 

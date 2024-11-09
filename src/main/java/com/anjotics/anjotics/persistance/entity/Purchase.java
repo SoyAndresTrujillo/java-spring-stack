@@ -9,7 +9,7 @@ public class Purchase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "purchase_id")
-    private Long purchaseId;
+    private Integer purchaseId;
 
     @Column(name = "customer_id")
     private String customerId;
@@ -23,11 +23,11 @@ public class Purchase {
 
     private Boolean status;
 
-    public Long getPurchaseId() {
+    public Integer getPurchaseId() {
         return purchaseId;
     }
 
-    public void setPurchaseId(Long purchaseId) {
+    public void setPurchaseId(Integer purchaseId) {
         this.purchaseId = purchaseId;
     }
 
