@@ -37,3 +37,6 @@ out/
 .vscode/
 
 .env
+
+# Postgres data
+postgres_data/

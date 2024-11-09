@@ -1,65 +1,65 @@
 -- -----------------------------------------------------
--- Table "CATEGORIAS"
+-- Table "CATEGORIES"
 -- -----------------------------------------------------
-CREATE TABLE CATEGORIAS (
-    "id_categoria" SERIAL NOT NULL,
-    "descripcion" VARCHAR(45) NOT NULL,
-    "estado" BOOLEAN NOT NULL,
-    PRIMARY KEY ("id_categoria")
+CREATE TABLE CATEGORIES (
+    "category_id" SERIAL NOT NULL,
+    "description" VARCHAR(45) NOT NULL,
+    "status" BOOLEAN NOT NULL,
+    PRIMARY KEY ("category_id")
 );
 
 -- -----------------------------------------------------
--- Table "PRODUCTOS"
+-- Table "PRODUCTS"
 -- -----------------------------------------------------
-CREATE TABLE PRODUCTOS (
-    "id_producto" SERIAL NOT NULL,
-    "nombre" VARCHAR(45) NULL,
-    "id_categoria" INT NOT NULL,
-    "codigo_barras" VARCHAR(150) NULL,
-    "precio_venta" DECIMAL(16, 2) NULL,
-    "cantidad_stock" INT NOT NULL,
-    "estado" BOOLEAN NULL,
-    PRIMARY KEY ("id_producto"),
-    CONSTRAINT "fk_PRODUCTOS_CATEGORIAS" FOREIGN KEY ("id_categoria") REFERENCES CATEGORIAS ("id_categoria") ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE PRODUCTS (
+    "product_id" SERIAL NOT NULL,
+    "name" VARCHAR(45) NULL,
+    "category_id" INT NOT NULL,
+    "barcode" VARCHAR(150) NULL,
+    "sale_price" DECIMAL(16, 2) NULL,
+    "stock_quantity" INT NOT NULL,
+    "status" BOOLEAN NULL,
+    PRIMARY KEY ("product_id"),
+    CONSTRAINT "fk_PRODUCTS_CATEGORIES" FOREIGN KEY ("category_id") REFERENCES CATEGORIES ("category_id") ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
 -- -----------------------------------------------------
--- Table "CLIENTES"
+-- Table "CUSTOMERS"
 -- -----------------------------------------------------
-CREATE TABLE CLIENTES (
+CREATE TABLE CUSTOMERS (
     "id" VARCHAR(20) NOT NULL,
-    "nombre" VARCHAR(40) NULL,
-    "apellidos" VARCHAR(100) NULL,
-    "celular" NUMERIC NULL,
-    "direccion" VARCHAR(80) NULL,
-    "correo_electronico" VARCHAR(70) NULL,
+    "first_name" VARCHAR(40) NULL,
+    "last_name" VARCHAR(100) NULL,
+    "phone" NUMERIC NULL,
+    "address" VARCHAR(80) NULL,
+    "email" VARCHAR(70) NULL,
     PRIMARY KEY ("id")
 );
 
 -- -----------------------------------------------------
--- Table "COMPRAS"
+-- Table "PURCHASES"
 -- -----------------------------------------------------
-CREATE TABLE COMPRAS (
-    "id_compra" SERIAL NOT NULL,
-    "id_cliente" VARCHAR(20) NOT NULL,
-    "fecha" TIMESTAMP NULL,
-    "medio_pago" CHAR(1) NULL,
-    "comentario" VARCHAR(300) NULL,
-    "estado" CHAR(1) NULL,
-    PRIMARY KEY ("id_compra"),
-    CONSTRAINT "fk_COMPRAS_CLIENTES1" FOREIGN KEY ("id_cliente") REFERENCES CLIENTES ("id") ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE PURCHASES (
+    "purchase_id" SERIAL NOT NULL,
+    "customer_id" VARCHAR(20) NOT NULL,
+    "date" TIMESTAMP NULL,
+    "payment_method" CHAR(1) NULL,
+    "comment" VARCHAR(300) NULL,
+    "status" CHAR(1) NULL,
+    PRIMARY KEY ("purchase_id"),
+    CONSTRAINT "fk_PURCHASES_CUSTOMERS" FOREIGN KEY ("customer_id") REFERENCES CUSTOMERS ("id") ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
 -- -----------------------------------------------------
--- Table "COMPRAS_PRODUCTOS"
+-- Table "PURCHASES_PRODUCTS"
 -- -----------------------------------------------------
-CREATE TABLE COMPRAS_PRODUCTOS (
-    "id_compra" INT NOT NULL,
-    "id_producto" INT NOT NULL,
-    "cantidad" INT NULL,
+CREATE TABLE PURCHASES_PRODUCTS (
+    "purchase_id" INT NOT NULL,
+    "product_id" INT NOT NULL,
+    "quantity" INT NULL,
     "total" DECIMAL(16, 2) NULL,
-    "estado" BOOLEAN NULL,
-    PRIMARY KEY ("id_compra", "id_producto"),
-    CONSTRAINT "fk_COMPRAS_PRODUCTOS_PRODUCTOS1" FOREIGN KEY ("id_producto") REFERENCES PRODUCTOS ("id_producto") ON DELETE NO ACTION ON UPDATE NO ACTION,
-    CONSTRAINT "fk_COMPRAS_PRODUCTOS_COMPRAS1" FOREIGN KEY ("id_compra") REFERENCES COMPRAS ("id_compra") ON DELETE NO ACTION ON UPDATE NO ACTION
+    "status" BOOLEAN NULL,
+    PRIMARY KEY ("purchase_id", "product_id"),
+    CONSTRAINT "fk_PURCHASES_PRODUCTS_PRODUCTS" FOREIGN KEY ("product_id") REFERENCES PRODUCTS ("product_id") ON DELETE NO ACTION ON UPDATE NO ACTION,
+    CONSTRAINT "fk_PURCHASES_PRODUCTS_PURCHASES" FOREIGN KEY ("purchase_id") REFERENCES PURCHASES ("purchase_id") ON DELETE NO ACTION ON UPDATE NO ACTION
 );
