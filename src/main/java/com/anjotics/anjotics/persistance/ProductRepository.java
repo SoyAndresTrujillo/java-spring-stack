@@ -9,6 +9,10 @@ import java.util.Optional;
 
 @Repository
 public class ProductRepository {
+    /**
+     * This is the ProductCrudRepository instance that is used to perform CRUD
+     * operations on the Product entity. (implementation for interface)
+     */
     private ProductCrudRepository productCrudRepository;
 
     /**
