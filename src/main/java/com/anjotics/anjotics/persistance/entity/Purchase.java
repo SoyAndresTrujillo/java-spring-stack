@@ -2,6 +2,7 @@ package com.anjotics.anjotics.persistance.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "purchases")
@@ -22,6 +23,13 @@ public class Purchase {
     private String comment;
 
     private Boolean status;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id", insertable = false, updatable = false)
+    private Customer customer;
+
+    @OneToMany(mappedBy = "purchase")
+    private List<PurchasesProduct> products;
 
     public Integer getPurchaseId() {
         return purchaseId;

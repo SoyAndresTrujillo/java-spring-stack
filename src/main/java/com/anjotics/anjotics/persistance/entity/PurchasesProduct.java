@@ -14,6 +14,14 @@ public class PurchasesProduct {
 
     private Boolean status;
 
+    @ManyToOne
+    @JoinColumn(name = "purchase_id", insertable = false, updatable = false)
+    private Purchase purchase;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", insertable = false, updatable = false)
+    private Product product;
+
     public PurchasesProductPK getId() {
         return id;
     }

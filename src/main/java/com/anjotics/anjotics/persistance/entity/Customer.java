@@ -1,6 +1,7 @@
 package com.anjotics.anjotics.persistance.entity;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "customers")
@@ -19,6 +20,9 @@ public class Customer {
     private String address;
 
     private String email;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Purchase> purchases;
 
     public String getId() {
         return id;
