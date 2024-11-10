@@ -3,6 +3,13 @@ package com.anjotics.anjotics.persistance.crud;
 import com.anjotics.anjotics.persistance.entity.Product;
 import org.springframework.data.repository.CrudRepository;
 
-public interface ProductCrudRepository extends CrudRepository<Product, Integer> {
+import java.util.List;
+import java.util.Optional;
 
+public interface ProductCrudRepository extends CrudRepository<Product, Integer> {
+    // @Query(value = "SELECT * FROM products WHERE category_id = ?", nativeQuery =
+    // true) for complex queries
+    List<Product> findByCategoryIdByNameAsc(int categoryId);
+
+    Optional<List<Product>> findByStockQuantityLessThanAndStatusTrue(int stockQuantity);
 }
