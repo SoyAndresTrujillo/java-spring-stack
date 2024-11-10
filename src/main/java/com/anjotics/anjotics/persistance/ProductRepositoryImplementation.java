@@ -48,10 +48,11 @@ public class ProductRepositoryImplementation implements ProductRepository {
      */
     public Optional<List<ProductDomain>> getByCategory(int categoryId) {
         /**
-         * In this case, the findByCategoryIdByNameAsc method is a custom query defined
+         * In this case, the findByIdCategoryOrderByNameAsc method is a custom query
+         * defined
          * in the ProductCrudRepository interface and returns a List<ProductDomain>.
          */
-        return Optional.of(mapper.toProducts(productCrudRepository.findByCategoryIdByNameAsc(categoryId)));
+        return Optional.of(mapper.toProducts(productCrudRepository.findByIdCategoryOrderByNameAsc(categoryId)));
     }
 
     /**

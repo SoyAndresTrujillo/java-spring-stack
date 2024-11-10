@@ -12,7 +12,7 @@ import com.anjotics.anjotics.persistance.entity.Product;
 @Mapper(componentModel = "spring", uses = { CategoryMapper.class })
 public interface ProductMapper {
     @Mappings({
-            @Mapping(source = "productId", target = "idProduct"),
+            @Mapping(source = "idProduct", target = "idProduct"),
             @Mapping(source = "name", target = "name"),
             @Mapping(source = "idCategory", target = "idCategory"),
             @Mapping(source = "salePrice", target = "price"),
