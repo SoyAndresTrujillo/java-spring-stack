@@ -6,7 +6,8 @@ import org.mapstruct.Mappings;
 import java.util.List;
 import org.mapstruct.InheritInverseConfiguration;
 
-import com.anjotics.anjotics.domain.Product;
+import com.anjotics.anjotics.domain.ProductDomain;
+import com.anjotics.anjotics.persistance.entity.Product;
 
 @Mapper(componentModel = "spring", uses = { CategoryMapper.class })
 public interface ProductMapper {
@@ -19,11 +20,11 @@ public interface ProductMapper {
             @Mapping(source = "status", target = "active"),
             @Mapping(source = "category", target = "category")
     })
-    Product toProduct(com.anjotics.anjotics.persistance.entity.Product productEntity);
+    ProductDomain toProduct(Product productEntity);
 
-    List<com.anjotics.anjotics.persistance.entity.Product> toProducts(List<Product> products);
+    List<Product> toProducts(List<ProductDomain> products);
 
     @InheritInverseConfiguration
     @Mapping(target = "barcode", ignore = true)
-    com.anjotics.anjotics.persistance.entity.Product toProductEntity(Product productDomain);
+    Product toProductEntity(ProductDomain productDomain);
 }

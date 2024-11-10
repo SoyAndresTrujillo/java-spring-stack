@@ -3,18 +3,18 @@ package com.anjotics.anjotics.domain.repository;
 import java.util.List;
 import java.util.Optional;
 
-import com.anjotics.anjotics.domain.Product;
+import com.anjotics.anjotics.domain.ProductDomain;
 
 public interface ProductRepository {
-    List<Product> getAll();
+    List<ProductDomain> getAll();
 
-    Optional<List<Product>> getByCategory(int categoryId);
+    Optional<List<ProductDomain>> getByCategory(int categoryId);
 
-    Optional<List<Product>> getLessStock(int quantity);
+    Optional<List<ProductDomain>> getLessStock(int quantity);
 
-    Optional<Product> getProduct(int productId);
+    Optional<ProductDomain> getProduct(int productId);
 
-    Product save(Product product);
+    ProductDomain save(ProductDomain product);
 
     void delete(int productId);
 }

@@ -2,14 +2,14 @@ package com.anjotics.anjotics.domain;
 
 import java.math.BigDecimal;
 
-public class Product {
+public class ProductDomain {
     private int idProduct;
     private String name;
     private int idCategory;
     private BigDecimal price;
     private int stock;
     private boolean active;
-    private Category category;
+    private CategoryDomain category;
 
     public int getIdProduct() {
         return idProduct;
@@ -59,11 +59,11 @@ public class Product {
         this.active = active;
     }
 
-    public Category getCategory() {
+    public CategoryDomain getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(CategoryDomain category) {
         this.category = category;
     }
 }
