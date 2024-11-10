@@ -2,44 +2,50 @@ package com.anjotics.anjotics.persistance;
 
 import com.anjotics.anjotics.persistance.crud.ProductCrudRepository;
 import com.anjotics.anjotics.persistance.entity.Product;
+import com.anjotics.anjotics.domain.ProductDomain;
 import org.springframework.stereotype.Repository;
+import com.anjotics.anjotics.persistance.mapper.ProductMapper;
 
 import java.util.List;
 import java.util.Optional;
 
+import com.anjotics.anjotics.domain.repository.ProductRepository;
+
 @Repository
-public class ProductRepository {
+public class ProductRepositoryImplementation implements ProductRepository {
     /**
      * This is the ProductCrudRepository instance that is used to perform CRUD
      * operations on the Product entity. (implementation for interface)
      */
     private ProductCrudRepository productCrudRepository;
+    private ProductMapper mapper;
 
     /**
      * This method is used to get all products from the database.
      * 
-     * @return List<Product>
+     * @return List<ProductDomain>
      */
-    public List<Product> getAll() {
+    @Override
+    public List<ProductDomain> getAll() {
         /**
          * In this case, the findAll method is natively implemented by Spring Data JPA
-         * and returns a List<Product>.
+         * and returns a List<ProductDomain>.
          */
-        return (List<Product>) productCrudRepository.findAll();
+        return mapper.toProducts((List<Product>) productCrudRepository.findAll());
     }
 
     /**
      * This method is used to get all products by category from the database.
-     * 
+     *
      * @param categoryId
-     * @return List<Product>
+     * @return List<ProductDomain>
      */
-    public List<Product> getByCategory(int categoryId) {
+    public Optional<List<ProductDomain>> getByCategory(int categoryId) {
         /**
          * In this case, the findByCategoryIdByNameAsc method is a custom query defined
-         * in the ProductCrudRepository interface and returns a List<Product>.
+         * in the ProductCrudRepository interface and returns a List<ProductDomain>.
          */
-        return productCrudRepository.findByCategoryIdByNameAsc(categoryId);
+        return Optional.of(mapper.toProducts(productCrudRepository.findByCategoryIdByNameAsc(categoryId)));
     }
 
     /**
@@ -47,44 +53,53 @@ public class ProductRepository {
      * quantity from the database.
      * 
      * @param quantity
-     * @return Optional<List<Product>>
+     * @return Optional<List<ProductDomain>>
      */
-    public Optional<List<Product>> getLessStock(int quantity) {
+    @Override
+    public Optional<List<ProductDomain>> getLessStock(int quantity) {
         /**
          * In this case, the findByStockQuantityLessThanAndStatusTrue method is a custom
          * query defined in the ProductCrudRepository interface and returns an
-         * Optional<List<Product>>.
+         * Optional<List<ProductDomain>>.
          */
-        return productCrudRepository.findByStockQuantityLessThanAndStatusTrue(quantity);
+        Optional<List<Product>> products = productCrudRepository.findByStockQuantityLessThanAndStatusTrue(quantity);
+        /**
+         * The :: is a lambda expression that is used to convert the List<Product> to
+         * List<ProductDomain>.
+         * or use products.map(products -> mapper.toProducts(products));
+         */
+        return products.map(mapper::toProducts);
     }
 
     /**
      * This method is used to get a product by its id from the database.
      * 
      * @param productId
-     * @return Optional<Product>
+     * @return Optional<ProductDomain>
      */
-    public Optional<Product> getProduct(int productId) {
+    public Optional<ProductDomain> getProduct(int productId) {
         /**
          * In this case, the findById method is natively implemented by Spring Data JPA
-         * and returns an Optional<Product> because the product might not exist in the
+         * and returns an Optional<ProductDomain> because the product might not exist in
+         * the
          * database.
          */
-        return productCrudRepository.findById(productId);
+        return productCrudRepository.findById(productId).map(mapper::toProduct);
     }
 
     /**
      * This method is used to save a product to the database.
      * 
      * @param product
-     * @return Product
+     * @return ProductDomain
      */
-    public Product save(Product product) {
+    @Override
+    public ProductDomain save(ProductDomain product) {
         /**
          * In this case, the save method is natively implemented by Spring Data JPA and
-         * returns the saved product.
+         * returns the saved product entity and then it is converted to ProductDomain.
          */
-        return productCrudRepository.save(product);
+        return mapper.toProduct(productCrudRepository.save(mapper.toProductEntity(product)));
     }
 
     /**
@@ -92,6 +107,7 @@ public class ProductRepository {
      * 
      * @param productId
      */
+    @Override
     public void delete(int productId) {
         /**
          * In this case, the deleteById method is natively implemented by Spring Data
