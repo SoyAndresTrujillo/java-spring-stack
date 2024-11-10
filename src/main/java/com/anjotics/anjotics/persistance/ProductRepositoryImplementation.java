@@ -1,15 +1,15 @@
 package com.anjotics.anjotics.persistance;
 
 import com.anjotics.anjotics.persistance.crud.ProductCrudRepository;
+import com.anjotics.anjotics.domain.repository.ProductRepository;
+import com.anjotics.anjotics.persistance.mapper.ProductMapper;
 import com.anjotics.anjotics.persistance.entity.Product;
 import com.anjotics.anjotics.domain.ProductDomain;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import com.anjotics.anjotics.persistance.mapper.ProductMapper;
-
-import java.util.List;
 import java.util.Optional;
-
-import com.anjotics.anjotics.domain.repository.ProductRepository;
+import java.util.List;
 
 @Repository
 public class ProductRepositoryImplementation implements ProductRepository {
@@ -17,7 +17,13 @@ public class ProductRepositoryImplementation implements ProductRepository {
      * This is the ProductCrudRepository instance that is used to perform CRUD
      * operations on the Product entity. (implementation for interface)
      */
+    @Autowired
     private ProductCrudRepository productCrudRepository;
+
+    /**
+     * When a component or beans from spring then it is @Autowired is requiered.
+     */
+    @Autowired
     private ProductMapper mapper;
 
     /**
