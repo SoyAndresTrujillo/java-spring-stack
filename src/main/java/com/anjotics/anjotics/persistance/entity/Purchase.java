@@ -1,8 +1,17 @@
 package com.anjotics.anjotics.persistance.entity;
 
-import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "purchases")
@@ -77,5 +86,21 @@ public class Purchase {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public List<PurchasesProduct> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<PurchasesProduct> products) {
+        this.products = products;
     }
 }
