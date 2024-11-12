@@ -1,6 +1,7 @@
 package com.anjotics.anjotics.web.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,8 +36,14 @@ public class ProductController {
 
     @GetMapping("/by-category/{categoryId}")
     public ResponseEntity<List<ProductDomain>> getByCategory(@PathVariable("categoryId") int categoryId) {
-        return productService.getByCategory(categoryId).map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        Optional<List<ProductDomain>> products = productService.getByCategory(categoryId);
+        /**
+         * If products < 1 return not found
+         */
+        if (products.isPresent() && !products.get().isEmpty()) {
+            return ResponseEntity.ok(products.get());
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @PostMapping("/save")
