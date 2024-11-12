@@ -1,15 +1,16 @@
 package com.anjotics.anjotics.persistance;
 
-import com.anjotics.anjotics.persistance.crud.ProductCrudRepository;
-import com.anjotics.anjotics.domain.repository.ProductRepository;
-import com.anjotics.anjotics.persistance.mapper.ProductMapper;
-import com.anjotics.anjotics.persistance.entity.Product;
-import com.anjotics.anjotics.domain.ProductDomain;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import java.util.Optional;
-import java.util.List;
+
+import com.anjotics.anjotics.domain.ProductDomain;
+import com.anjotics.anjotics.domain.repository.ProductRepository;
+import com.anjotics.anjotics.persistance.crud.ProductCrudRepository;
+import com.anjotics.anjotics.persistance.entity.Product;
+import com.anjotics.anjotics.persistance.mapper.ProductMapper;
 
 @Repository
 public class ProductRepositoryImplementation implements ProductRepository {
@@ -46,13 +47,14 @@ public class ProductRepositoryImplementation implements ProductRepository {
      * @param categoryId
      * @return List<ProductDomain>
      */
+    @Override
     public Optional<List<ProductDomain>> getByCategory(int categoryId) {
         /**
-         * In this case, the findByIdCategoryOrderByNameAsc method is a custom query
+         * In this case, the findByCategoryIdOrderByNameAsc method is a custom query
          * defined
          * in the ProductCrudRepository interface and returns a List<ProductDomain>.
          */
-        return Optional.of(mapper.toProducts(productCrudRepository.findByIdCategoryOrderByNameAsc(categoryId)));
+        return Optional.of(mapper.toProducts(productCrudRepository.findByCategoryIdOrderByNameAsc(categoryId)));
     }
 
     /**
@@ -84,6 +86,7 @@ public class ProductRepositoryImplementation implements ProductRepository {
      * @param productId
      * @return Optional<ProductDomain>
      */
+    @Override
     public Optional<ProductDomain> getProduct(int productId) {
         /**
          * In this case, the findById method is natively implemented by Spring Data JPA

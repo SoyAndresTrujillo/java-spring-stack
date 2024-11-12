@@ -1,20 +1,28 @@
 package com.anjotics.anjotics.persistance.entity;
 
-import jakarta.persistence.*;
 import java.math.BigDecimal;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_product")
-    private Integer idProduct;
+    @Column(name = "product_id")
+    private Integer productId;
 
     private String name;
 
-    @Column(name = "id_category")
-    private Integer idCategory;
+    @Column(name = "category_id")
+    private Integer categoryId;
 
     private String barcode;
 
@@ -30,12 +38,12 @@ public class Product {
     @JoinColumn(name = "category_id", insertable = false, updatable = false)
     private Category category;
 
-    public Integer getIdProduct() {
-        return idProduct;
+    public Integer getProductId() {
+        return productId;
     }
 
-    public void setIdProduct(Integer idProduct) {
-        this.idProduct = idProduct;
+    public void setProductId(Integer productId) {
+        this.productId = productId;
     }
 
     public String getName() {
@@ -46,12 +54,12 @@ public class Product {
         this.name = name;
     }
 
-    public Integer getIdCategory() {
-        return idCategory;
+    public Integer getCategoryId() {
+        return categoryId;
     }
 
-    public void setIdCategory(Integer idCategory) {
-        this.idCategory = idCategory;
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getBarcode() {

@@ -1,23 +1,23 @@
 -- CATEGORIAS
-INSERT INTO categorias VALUES (1, 'Frutas y verduras', true);
+INSERT INTO categories VALUES (1, 'Frutas y verduras', true);
 
-INSERT INTO categorias VALUES (2, 'Pastelería', true);
+INSERT INTO categories VALUES (2, 'Pastelería', true);
 
-INSERT INTO categorias VALUES (3, 'Carnes y pescados', true);
+INSERT INTO categories VALUES (3, 'Carnes y pescados', true);
 
-INSERT INTO categorias VALUES (4, 'Lácteos y huevos', true);
+INSERT INTO categories VALUES (4, 'Lácteos y huevos', true);
 
-INSERT INTO categorias VALUES (5, 'Bebidas', true);
+INSERT INTO categories VALUES (5, 'Bebidas', true);
 
-INSERT INTO categorias VALUES (6, 'Licores', true);
+INSERT INTO categories VALUES (6, 'Licores', true);
 
-INSERT INTO categorias VALUES (7, 'Cuidado personal', true);
+INSERT INTO categories VALUES (7, 'Cuidado personal', true);
 
-INSERT INTO categorias VALUES (8, 'Despensa', true);
+INSERT INTO categories VALUES (8, 'Despensa', true);
 
 -- PRODUCTOS
 INSERT INTO
-    productos
+    products
 VALUES (
         1,
         'Guayaba Feijoa',
@@ -29,7 +29,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         2,
         'Mango',
@@ -41,7 +41,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         3,
         'Manzana',
@@ -53,7 +53,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         4,
         'Aguacate',
@@ -65,7 +65,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         5,
         'Lechuga',
@@ -77,7 +77,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         6,
         'Tomate',
@@ -89,7 +89,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         7,
         'Pera',
@@ -101,7 +101,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         8,
         'Apio',
@@ -113,7 +113,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         9,
         'Papaya',
@@ -125,7 +125,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         10,
         'Limón',
@@ -137,7 +137,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         11,
         'Brownie',
@@ -149,7 +149,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         12,
         'Pan tajado',
@@ -161,7 +161,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         13,
         'Torta',
@@ -173,7 +173,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         14,
         'Tortilla',
@@ -185,7 +185,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         15,
         'Tostadas',
@@ -197,7 +197,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         16,
         'Chocorramo',
@@ -209,7 +209,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         17,
         'Salmón',
@@ -221,7 +221,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         18,
         'Punta de anca',
@@ -233,7 +233,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         19,
         'Posta',
@@ -245,7 +245,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         20,
         'Costilla de cerdo',
@@ -257,7 +257,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         21,
         'Tilapia',
@@ -269,7 +269,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         22,
         'Merluza',
@@ -281,7 +281,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         23,
         'Leche de vaca',
@@ -293,7 +293,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         24,
         'Queso',
@@ -305,7 +305,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         25,
         'Huevos de gallina feliz',
@@ -317,7 +317,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         26,
         'Clara de huevo',
@@ -329,7 +329,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         27,
         'Suero costeño',
@@ -341,7 +341,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         28,
         'Agua',
@@ -353,7 +353,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         29,
         'Jugo de naranja',
@@ -365,7 +365,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         30,
         'Gaseosa Colombiana',
@@ -377,7 +377,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         31,
         'Jugo de Lulo',
@@ -389,7 +389,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         32,
         'Tea',
@@ -401,7 +401,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         33,
         'Cerveza',
@@ -413,7 +413,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         34,
         'Tequila',
@@ -425,7 +425,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         35,
         'Ron',
@@ -437,7 +437,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         36,
         'Aguardiente Antioqueño',
@@ -449,7 +449,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         37,
         'Vino',
@@ -461,7 +461,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         38,
         'Crema dental',
@@ -473,7 +473,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         39,
         'Jabón de manos',
@@ -485,7 +485,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         40,
         'Enjuague bucal',
@@ -497,7 +497,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         41,
         'Shampoo',
@@ -509,7 +509,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         42,
         'Desodorante',
@@ -521,7 +521,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         43,
         'Arroz',
@@ -533,7 +533,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         44,
         'Lentejas',
@@ -545,7 +545,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         45,
         'Harina',
@@ -557,7 +557,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         46,
         'Sal',
@@ -569,7 +569,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         47,
         'Aceite',
@@ -581,7 +581,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         48,
         'Cereal',
@@ -593,7 +593,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         49,
         'Frijol',
@@ -605,7 +605,7 @@ VALUES (
     );
 
 INSERT INTO
-    productos
+    products
 VALUES (
         50,
         'Café',
@@ -618,7 +618,7 @@ VALUES (
 
 -- CLIENTES
 INSERT INTO
-    clientes
+    customers
 VALUES (
         '4546221',
         'Johannes',
@@ -629,7 +629,7 @@ VALUES (
     );
 
 INSERT INTO
-    clientes
+    customers
 VALUES (
         '2552243',
         'Galileo',
@@ -640,7 +640,7 @@ VALUES (
     );
 
 INSERT INTO
-    clientes
+    customers
 VALUES (
         '983824',
         'Nicolás',
@@ -652,7 +652,7 @@ VALUES (
 
 -- COMPRA
 INSERT INTO
-    compras
+    purchases
 VALUES (
         1,
         '4546221',
@@ -665,19 +665,19 @@ VALUES (
         'P'
     );
 
-INSERT INTO compras_productos VALUES (1, 1, 10, 3000, true);
+INSERT INTO purchases_products VALUES (1, 1, 10, 3000, true);
 
-INSERT INTO compras_productos VALUES (1, 36, 1, 40000, true);
+INSERT INTO purchases_products VALUES (1, 36, 1, 40000, true);
 
-INSERT INTO compras_productos VALUES (1, 27, 1, 9000, true);
+INSERT INTO purchases_products VALUES (1, 27, 1, 9000, true);
 
-INSERT INTO compras_productos VALUES (1, 49, 2, 16400, true);
+INSERT INTO purchases_products VALUES (1, 49, 2, 16400, true);
 
-INSERT INTO compras_productos VALUES (1, 24, 1, 4000, true);
+INSERT INTO purchases_products VALUES (1, 24, 1, 4000, true);
 
 -- SE REINICIAN LAS SECUENCIAS SEGÚN LOS DATOS INICIALES
-SELECT setval ( 'public.productos_id_producto_seq', 50, true );
+SELECT setval ( 'public.products_product_id_seq', 50, true );
 
-SELECT setval ( 'public.categorias_id_categoria_seq', 8, true );
+SELECT setval ( 'public.categories_category_id_seq', 8, true );
 
-SELECT setval ( 'public.compras_id_compra_seq', 1, true );
+SELECT setval ( 'public.purchases_purchase_id_seq', 1, true );

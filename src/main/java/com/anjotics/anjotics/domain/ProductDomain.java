@@ -3,20 +3,20 @@ package com.anjotics.anjotics.domain;
 import java.math.BigDecimal;
 
 public class ProductDomain {
-    private int idProduct;
+    private int productId;
     private String name;
-    private int idCategory;
+    private int categoryId;
     private BigDecimal price;
     private int stock;
     private boolean active;
     private CategoryDomain category;
 
-    public int getIdProduct() {
-        return idProduct;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setIdProduct(int idProduct) {
-        this.idProduct = idProduct;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
     public String getName() {
@@ -27,12 +27,12 @@ public class ProductDomain {
         this.name = name;
     }
 
-    public int getIdCategory() {
-        return idCategory;
+    public int getCategoryId() {
+        return categoryId;
     }
 
-    public void setIdCategory(int idCategory) {
-        this.idCategory = idCategory;
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public BigDecimal getPrice() {

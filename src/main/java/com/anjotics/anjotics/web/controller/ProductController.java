@@ -2,13 +2,15 @@ package com.anjotics.anjotics.web.controller;
 
 import java.util.List;
 import java.util.Optional;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.anjotics.anjotics.domain.ProductDomain;
 import com.anjotics.anjotics.domain.service.ProductService;
@@ -30,12 +32,12 @@ public class ProductController {
     }
 
     @GetMapping("/{productId}")
-    public Optional<ProductDomain> getProduct(int productId) {
+    public Optional<ProductDomain> getProduct(@PathVariable("productId") int productId) {
         return productService.getProduct(productId);
     }
 
     @PostMapping("/save")
-    public ProductDomain save(ProductDomain product) {
+    public ProductDomain save(@RequestBody ProductDomain product) {
         return productService.save(product);
     }
 
