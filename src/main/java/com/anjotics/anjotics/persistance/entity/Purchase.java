@@ -3,6 +3,7 @@ package com.anjotics.anjotics.persistance.entity;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,13 +32,13 @@ public class Purchase {
 
     private String comment;
 
-    private Boolean status;
+    private String status;
 
     @ManyToOne
     @JoinColumn(name = "customer_id", insertable = false, updatable = false)
     private Customer customer;
 
-    @OneToMany(mappedBy = "purchase")
+    @OneToMany(mappedBy = "purchase", cascade = { CascadeType.ALL })
     private List<PurchasesProduct> products;
 
     public Integer getPurchaseId() {
@@ -80,11 +81,11 @@ public class Purchase {
         this.comment = comment;
     }
 
-    public Boolean getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

@@ -4,6 +4,7 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,6 +20,7 @@ public class PurchasesProduct {
     private Boolean status;
 
     @ManyToOne
+    @MapsId("purchaseId")
     @JoinColumn(name = "purchase_id", insertable = false, updatable = false)
     private Purchase purchase;
 

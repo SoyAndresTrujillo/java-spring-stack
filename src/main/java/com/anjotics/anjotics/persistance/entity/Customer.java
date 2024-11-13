@@ -20,7 +20,7 @@ public class Customer {
     @Column(name = "last_name")
     private String lastName;
 
-    private Integer phone;
+    private Long phone;
 
     private String address;
 
@@ -53,11 +53,11 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public Integer getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 
